@@ -1,0 +1,283 @@
+code tugas: 
+------------------------------------------------------------------------------------------------------------------------
+css internal:
+<style>
+  /* Custom CSS */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  #list_number {
+    margin-top: 20px;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  li {
+    margin-bottom: 5px;
+  }
+</style>
+
+body and js:
+<div>
+  <label for="pesan">Pesan</label>
+  <input type="text" placeholder="Masukkan Pesan Anda" id="pesan" />
+</div>
+<div>
+  <label for="berapa_kali">Berapa Kali</label>
+  <input
+    type="number"
+    placeholder="Masukkan Jumlah Looping Anda"
+    id="berapa_kali"
+  />
+</div>
+<button id="cetak_button">Cetak Data</button>
+<!-- Display data -->
+<div id="list_number"></div>
+
+<script>
+  // Declaring variables
+  let pesan = document.getElementById("pesan");
+  let berapa_kali = document.getElementById("berapa_kali");
+  let list_number = document.getElementById("list_number");
+  const cetak_button = document.getElementById("cetak_button");
+
+  cetak_button.addEventListener("click", cetakData);
+
+  // Function to print data
+  function cetakData() {
+    // Insial data
+    let hasilLoop = `<ol>`;
+
+    // Looping data
+    for (let index = 1; index <= parseInt(berapa_kali.value); index++) {
+      hasilLoop += `<li>${pesan.value}</li>`;
+    }
+    // Closing initialization
+    hasilLoop += `</ol>`;
+
+    // Output
+    list_number.innerHTML = hasilLoop;
+  }
+</script>
+------------------------------------------------------------------------------------------------------------------------
+code aritmatika:
+<h1>Belajar Aritmatika</h1>
+
+<label for="">Nilai Variabel A</label>
+<input id="variabel_a" value="1" readonly />
+
+<div id="hasil">Hasil : 0</div>
+
+<br />
+
+<label for="password">Password</label>
+<input type="text" placeholder="Masukkan Password Anda" />
+
+<br />
+<br />
+<label for="" onch>Pilih Kota Anda</label>
+<select name="" id="">
+  <option value="">Jambi</option>
+  <option value="">Palembang</option>
+</select>
+
+<br />
+<script>
+  let jumlah = document.getElementById("variabel_a");
+  let varA = parseInt(jumlah.value);
+  let varB = 2;
+
+  let hasil = document.getElementById("hasil");
+
+  let plus = hitungAritmatika(varA, varB, "+");
+  console.log(plus);
+  //   hitungAritmatika(varA, varB, "-");
+  //   hitungAritmatika(varA, varB, "*");
+  //   hitungAritmatika(varA, varB, "/");
+
+  function hitungAritmatika(a, b, mode) {
+    let hitungHasil = 0;
+    let tipe = "";
+    switch (mode) {
+      case "+":
+        hitungHasil = a + b;
+        tipe = "tambah";
+        break;
+      case "-":
+        hitungHasil = a - b;
+        tipe = "kurang";
+        break;
+      case "*":
+        hitungHasil = a * b;
+        tipe = "kali";
+        break;
+      case "/":
+        hitungHasil = a / b;
+        tipe = "bagi";
+        break;
+      default:
+        hitungHasil = 0;
+        break;
+    }
+    let output = `ini function hitung (${tipe}) : ${hitungHasil}`;
+    console.log(output);
+    // document.write(`<h3 id="h3" hidden>${output}</h3>`);
+    return output;
+  }
+
+  hasil.innerHTML = plus;
+</script>
+------------------------------------------------------------------------------------------------------------------------
+code grade:
+<label for="">Nilai</label>
+<input type="number" placeholder="Masukkan Nilai Anda" id="nilai" />
+<button onclick="cekGrade()">Cek Grade</button>
+<p id="hasil">-</p>
+<script>
+  let hasil = document.getElementById("hasil");
+  let nilai = document.getElementById("nilai");
+  function cekGrade() {
+    let varA = parseInt(nilai.value);
+    let output = "";
+    if (varA >= 80 && varA <= 100) {
+      output = returnData("A", varA);
+    } else if (varA >= 70 && varA <= 79) {
+      output = returnData("B", varA);
+    } else {
+      output = "tidak ada";
+    }
+    hasil.innerHTML = output;
+  }
+
+  function returnData(hurufA, nilA) {
+    return `huruf mutu ${hurufA} dengan nilai ${nilA}`;
+  }
+</script>
+------------------------------------------------------------------------------------------------------------------------
+code kondisi:
+<button onclick="kondisiNikah()">Klik Saya</button>
+<p id="hasil">-</p>
+<script>
+  function kondisiNikah() {
+    let cekData = document.getElementById("hasil");
+    let isNikah = true;
+    let hasil = "salah";
+
+    // if (cekData.innerHTML == "ada") {
+    //   cekData.innerHTML = "kosong";
+    // } else if (cekData.innerHTML == "-") {
+    //   cekData.innerHTML = "ada";
+    // } else {
+    //   cekData.innerHTML = "-";
+    // }
+
+    cekData.innerHTML = cekData.innerHTML == "ada" ? "kosong" : cekData.innerHTML == "-" ? "ada": "-";
+
+    // if (isNikah) hasil = "benar";
+    // cekData.innerHTML = hasil;
+  }
+</script>
+------------------------------------------------------------------------------------------------------------------------
+code variabel and tipe data:
+<script>
+  let angka = 80;
+  let kalimat = "Belajar JS di Prakerja";
+  let arrayTransport = ["Mobil", "Motor", "Pesawat", "Kapal"];
+  // indexing = 0 (no urut) > total 4 > 0,1,2,3
+  let objManusia = {
+    nama: "Wijaya",
+    usia: 26,
+    statusNikah: true,
+    insialName: "W",
+  };
+  // point (.) > kita call nama > objManusia.nama
+
+  // cek tipe data
+  console.log(typeof arrayTransport);
+  // output
+  console.log(arrayTransport.toString());
+  console.log("============");
+  var i = 0;
+  arrayTransport.forEach((element) => {
+    console.log(`no. ${i} dengan data: ${element}`);
+    i++;
+  });
+  console.log("============");
+  for (let index = 0; index < arrayTransport.length; index++) {
+    const element = arrayTransport[index];
+    console.log(element);
+  }
+  console.log(`Data Object Manusia: ${objManusia.insialName}`);
+  console.log("Data Object Manusia: " + objManusia.insialName);
+</script>
+------------------------------------------------------------------------------------------------------------------------
+kode hello:
+css:
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+
+body and js:
+<h1>Belajar JavaScript</h1>
+<input type="text" placeholder="Masukkan Nama Anda" id="nama" />
+<button onclick="callData()">Submit</button>
+<table>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Nama</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><div id="namaShow">-</div></td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  function callData() {
+    var nama = document.getElementById("nama").value;
+    var namaShow = document.getElementById("namaShow");
+
+    namaShow.innerHTML = nama ? nama : "Tidak Sesuai";
+  }
+</script>

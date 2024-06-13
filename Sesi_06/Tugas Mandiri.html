@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUGAS 6</title>
+</head>
+<body>
+    <H1>TUGAS MANDIRI SESI 6<br>Manipulasi DOM Pada Paragrafdengan Animasi Warna</H1>
+    <p id="lorem_satu">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium cum
+        eius ut. Voluptas doloribus quo odit iusto dolore! Repellat fugit
+        consequuntur asperiores natus aspernatur veritatis ut inventore. Pariatur,
+        facilis ducimus!
+      </p>
+      <p id="lorem_dua">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium cum
+        eius ut. Voluptas doloribus quo odit iusto dolore! Repellat fugit
+        consequuntur asperiores natus aspernatur veritatis ut inventore. Pariatur,
+        facilis ducimus!
+      </p>
+      <p id="lorem_tiga">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium cum
+        eius ut. Voluptas doloribus quo odit iusto dolore! Repellat fugit
+        consequuntur asperiores natus aspernatur veritatis ut inventore. Pariatur,
+        facilis ducimus!
+      </p>
+      <span>
+        <button onclick="animasiText()">Jalankan Animasi</button>
+        <button onclick="stopAnimasi()">Hentikan Animasi</button>
+        <button onclick="resetWarna()">Kembalikan Hitam</button>
+      </span>
+      
+
+      <script>
+            let intervalID;
+        //menjalankan animasi
+        function animasiText(){            
+            let lorem_satu=document.getElementById("lorem_satu");
+            let lorem_dua=document.getElementById("lorem_dua");
+            let lorem_tiga=document.getElementById("lorem_tiga");
+        
+        //mengatur waktu perubahan warna
+        intervalID =setInterval(() => {
+            lorem_satu.style.color="black";
+            lorem_dua.style.color="#0cffda";
+            lorem_tiga.style.color="red";
+        setTimeout(() =>{
+            lorem_satu.style.color="red";
+            lorem_dua.style.color="yellow";
+            lorem_tiga.style.color="blue";
+            },50);
+        },70);
+        }
+        //menghentikan animasi
+        function stopAnimasi(){
+            clearInterval(intervalID)
+        }
+        //Mengembalikan Warna animasi kehitam
+        function resetWarna(){
+            let Paragraphs=document.querySelectorAll("p");
+            Paragraphs.forEach(Paragraphs =>{
+                Paragraphs.style.color="black";
+            });
+        }
+      </script>
+</body>
+</html>

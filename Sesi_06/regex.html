@@ -1,0 +1,95 @@
+1. challange pertama : ganti fungsi addEventListener di JS, dengan onChange di Input/element
+		menggunakan function ubahWarna()
+    
+    jika kita menggunakan onClick='changeData(123,"","")'
+    
+    
+    function changeData(nik, namaDepan, namaBelakang){
+    	let data = `NIK Saya: ${nik}
+      						Nama Depan: ${namaDepan}`;
+      let data = "NIK Saya:"+nik+
+      					 " Nama Depan: "+namaDepan;
+    }
+    clue:
+    <input type="color" id="warnaLatar" onchange="ubahWarna()" />
+    function ubahWarna(params) {
+        let warnaLatar = document.getElementById("warnaLatar");
+        document.body.style.backgroundColor = warnaLatar.value;
+    }
+2. 
+
+
+
+
+chllange pertama:
+kode peserta | nama | improve
+
+------------------------------------------------------------------
+
+code belajar regex:
+<h1>Belajar Regex</h1>
+<script>
+  //   var foo = /ab+c/; //inisialisasi regex
+  //   var hasil = typeof foo; //tipe data object
+
+  //   var foo = "JavaScript Belajar JavaScript";
+  //   var pola = /Belajar/;  //case sensitive
+  //   var hasil = pola.test(foo); //true/false
+
+  //mempunyai digit/number 3 (3 data)
+  //   var foo =
+  //     "1 jam sama dengan 60 menit, juga sama dengan 3600 detik, total 1 jam";
+  //   var pola = /\d+/g;
+  //   var hasil = pola.exec(foo); //mencari/mencocokan
+  //   respon(pola.exec(foo));
+  //   respon(pola.exec(foo));
+  //   respon(pola.exec(foo));
+  //   respon(pola.exec(foo));
+
+  var foo = "Belajar JavaScript";
+  check("JavaScript");
+
+  function check(params){
+    var pola = `/${params}/`;
+    document.write(pola);
+  }
+  function respon(data) {
+    document.writeln(data);
+  }
+</script>
+
+------------------------------------------------------------------
+
+<h3>Tugas Mandiri Sesi 06</h3>
+<p id="lorem_satu">
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium cum
+  eius ut. Voluptas doloribus quo odit iusto dolore! Repellat fugit
+  consequuntur asperiores natus aspernatur veritatis ut inventore. Pariatur,
+  facilis ducimus!
+</p>
+<p id="lorem_dua">
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium cum
+  eius ut. Voluptas doloribus quo odit iusto dolore! Repellat fugit
+  consequuntur asperiores natus aspernatur veritatis ut inventore. Pariatur,
+  facilis ducimus!
+</p>
+<p id="lorem_tiga">
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium cum
+  eius ut. Voluptas doloribus quo odit iusto dolore! Repellat fugit
+  consequuntur asperiores natus aspernatur veritatis ut inventore. Pariatur,
+  facilis ducimus!
+</p>
+
+<script>
+  let lorem_satu = document.getElementById("lorem_satu");
+  let lorem_dua = document.getElementById("lorem_dua");
+  let lorem_tiga = document.getElementById("lorem_tiga");
+
+  setInterval(() => {
+    setTimeout(() => {
+      lorem_satu.style.color = "#008cff";
+      lorem_dua.style.color = "#0cffda";
+      lorem_tiga.style.color = "#b2ff0c";
+    }, 10000);
+  }, 10);
+</script>

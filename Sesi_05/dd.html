@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUGAS 5 NURPITRIANA</title>
+</head>
+<body>
+    <h3>TUGAS 5 NURPITRIANA</h3>
+    <div>
+        <label for="Hari">Hari</label>
+        <input type="text" placeholder="Masukan Nama Hari" id="Hari"/>
+    </div>
+    <br>
+    <div>
+        <label for="Tanggal">Tanggal</label>
+        <input type="number" placeholder="Masukan Tanggal Berapa" id="Tanggal"/>
+    </div>
+    <br>
+    <button id="Tampil_data">Lihat Hari</button>
+    <button id="Kosongkan_data">Kosongkan Data</button>
+    <div id="List_Hari"></div>
+
+    <script>
+        let Hari = document.getElementById("Hari");
+        let Tanggal = document.getElementById("Tanggal");
+        let List_Hari = document.getElementById("List_Hari");
+        const Tampil_data = document.getElementById("Tampil_data");
+        const Kosongkan_data = document.getElementById("Kosongkan_data");
+
+        Tampil_data.addEventListener("click", tampilData);
+        Kosongkan_data.addEventListener("click", kosongkanData);
+
+        function tampilData() {
+            // Insial data
+            const hariList = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
+            let hariIndex = hariList.indexOf(Hari.value.charAt(0).toUpperCase() + Hari.value.slice(1).toLowerCase());
+            
+            if (hariIndex === -1) {
+                List_Hari.innerHTML = `<p>Nama hari tidak valid. Silakan masukkan nama hari yang valid.</p>`;
+                return;
+            }
+            // Looping data
+            let hasilLoop = `<ol>`;
+            for (let index = 1; index <= parseInt(Tanggal.value); index++) {
+                hasilLoop += `<li>${hariList[hariIndex]} tanggal ${index}</li>`;
+                hariIndex = (hariIndex + 1) % 7; // Reset ke awal setelah hari Minggu
+            }
+            // Closing initialization
+            hasilLoop += `</ol>`;
+            //Output data
+            List_Hari.innerHTML = hasilLoop;
+        }
+        //Ulangi data
+        function kosongkanData() {
+            Hari.value = '';
+            Tanggal.value = '';
+            List_Hari.innerHTML = '';
+        }
+    </script>
+</body>
+</html>

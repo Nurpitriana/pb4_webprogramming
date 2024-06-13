@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation with Color Animation</title>
+    <style>
+        #animatingParagraph {
+            color: red; /* Warna awal teks */
+        }
+    </style>
+</head>
+<body>
+    <h1>Manipulasi DOM Pada Paragraf dengan Animasi Warna</h1>
+    
+    <p id="animatingParagraph">
+        Manipulasi DOM Pada Paragraf dengan Animasi Warna
+    </p>
+
+    <script>
+        let textColor = "red"; // Warna awal teks
+        let colors = ["red", "blue", "green"]; // Warna yang akan digunakan dalam animasi
+        let index = 0; // Indeks warna saat ini
+
+        // Mengatur interval untuk mengubah warna teks setiap 1 detik
+        let intervalId = setInterval(() => {
+            textColor = colors[index]; // Mengambil warna dari array colors
+            document.getElementById("animatingParagraph").style.color = textColor; // Mengatur warna teks
+            index = (index + 1) % colors.length; // Menambahkan indeks untuk mendapatkan warna selanjutnya
+        }, 1000); // Interval setiap 1 detik
+    </script>
+</body>
+</html>
